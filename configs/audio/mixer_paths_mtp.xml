@@ -2276,6 +2276,10 @@
         <ctl name="HPHR" value="Switch" />
     </path>
 
+    <path name="headphones-hifi-filter">
+        <path name="headphones" />
+    </path>
+
     <path name="headphones-44.1">
         <path name="headphones" />
     </path>
