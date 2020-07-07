@@ -1190,4 +1190,7 @@
     <bool name="config_fingerprintWakeAndUnlock">true</bool>
 
     <bool name="config_enableSmartPixels">true</bool>
+     
+         <!-- FOD Icon Dimming -->
+    <bool name="config_targetUsesInKernelDimming">false</bool>
 </resources>
