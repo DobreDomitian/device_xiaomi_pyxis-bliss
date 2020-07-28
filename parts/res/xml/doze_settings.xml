@@ -24,6 +24,7 @@
         android:summary="@string/ambient_display_always_on_summary"
         android:persistent="false" />
 
+
     <PreferenceCategory
         android:key="pickup_sensor"
         android:title="@string/pickup_sensor_title">
@@ -33,6 +34,7 @@
             android:defaultValue="false"
             android:title="@string/pick_up_gesture_title"
             android:summary="@string/pick_up_gesture_summary" />
+
 
     </PreferenceCategory>
 
@@ -51,6 +53,7 @@
             android:defaultValue="false"
             android:title="@string/pocket_gesture_title"
             android:summary="@string/pocket_gesture_summary" />
+
 
     </PreferenceCategory>
 
