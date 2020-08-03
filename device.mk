@@ -38,6 +38,10 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_PACKAGES += \
     NoCutoutOverlay
 
+# Doze
+PRODUCT_PACKAGES += \
+    CustomDoze		
+
 # Properties
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
