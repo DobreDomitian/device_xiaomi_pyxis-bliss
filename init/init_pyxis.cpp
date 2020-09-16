@@ -67,5 +67,5 @@ void vendor_load_properties() {
 	property_override("ro.oem_unlock_supported", "0");
 	property_override("ro.apex.updatable", "true");
 	property_override("ro.control_privapp_permissions", "log");
-	property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "Xiaomi/pyxis/pyxis:10/QKQ1.190828.002/V11.0.3.0.QFCMIXM:user/release-keys");
+	property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "Xiaomi/pyxis/pyxis:9/PKQ1.181121.001/V11.3.3.0.PFCMIXM:user/release-keys");
 }
