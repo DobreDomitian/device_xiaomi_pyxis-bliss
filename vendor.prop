@@ -121,6 +121,8 @@ ro.opengles.version=196610
 persist.sys.sf.color_saturation=1.0
 vendor.display.enable_default_color_mode=1
 vendor.gralloc.disable_ubwc=0
+ro.surface_flinger.has_wide_color_display=true
+ro.surface_flinger.has_HDR_display=true
 
 # Listen
 ro.audio.soundtrigger=sva
@@ -190,9 +192,6 @@ telephony.lteOnCdmaDevice=1
 # FM
 vendor.hw.fm.init=0
 ro.vendor.fm.use_audio_session=true
-
-# Fwk detect
-ro.vendor.qti.va_aosp.support=1
 
 # Time
 persist.vendor.delta_time.enable=true
