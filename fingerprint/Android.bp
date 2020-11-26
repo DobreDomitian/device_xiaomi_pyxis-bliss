@@ -31,6 +31,7 @@ cc_binary {
         "liblog",
         "libutils",
         "libcutils",
+        "vendor.goodix.hardware.biometrics.fingerprint@2.1",
         "android.hardware.biometrics.fingerprint@2.1",
         "vendor.xiaomi.hardware.fingerprintextension@1.0",
     ],

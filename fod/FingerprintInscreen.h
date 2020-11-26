@@ -51,10 +51,12 @@ public:
     Return<int32_t> getDimAmount(int32_t brightness) override;
     Return<bool> shouldBoostBrightness() override;
     Return<void> setCallback(const sp<IFingerprintInscreenCallback>& callback) override;
-
-private:
-    bool mFodCircleVisible;
+private:     
+    bool mPressed;
     sp<IXiaomiFingerprint> xiaomiFingerprintService;
+ 
+    std::mutex mCallbackLock;
+    sp<IFingerprintInscreenCallback> mCallback;
 };
 
 }  // namespace implementation
