@@ -326,6 +326,12 @@
             "Value": "2597"
         },
         {
+            "PowerHint": "INTERACTION",
+            "Node": "UfsClkGateEnable",
+            "Duration": 0,
+            "Value": "0"
+        },
+        {
             "PowerHint": "LAUNCH",
             "Node": "CPUBigClusterMaxFreq",
             "Duration": 3000,
@@ -340,7 +346,7 @@
         {
             "PowerHint": "LAUNCH",
             "Node": "CPULittleClusterMinFreq",
-            "Duration": 5000,
+            "Duration": 3000,
             "Value": "9999999"
         },
         {
@@ -406,7 +412,7 @@
         {
             "PowerHint": "LAUNCH",
             "Node": "UfsClkGateEnable",
-            "Duration": 3000,
+            "Duration": 5000,
             "Value": "0"
         },
         {
