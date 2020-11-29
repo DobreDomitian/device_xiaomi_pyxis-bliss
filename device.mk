@@ -403,6 +403,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     XiaomiParts
 
+# Remove stock apps
+PRODUCT_PACKAGES += \
+    RemovePackages
+    
 # Telephony
 PRODUCT_PACKAGES += \
     ims-ext-common \
