@@ -407,10 +407,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     RemovePackages
     
-# XiaomiPocketMode
-PRODUCT_PACKAGES += \
-    XiaomiPocketMode
-    
 # Telephony
 PRODUCT_PACKAGES += \
     ims-ext-common \
