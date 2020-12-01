@@ -35,7 +35,6 @@
 #define FOD_STATUS_ON 1
 #define FOD_STATUS_OFF 0
 
-#define FOD_GESTURE 
 #define FOD_ERROR 8
 #define FOD_ERROR_VENDOR 6
 
@@ -155,7 +154,7 @@ Return<void> FingerprintInscreen::setLongPressEnabled(bool) {
     return Void();
 }
 
-Return<int32_t> FingerprintInscreen::getDimAmount(int32_t) {
+Return<int32_t> FingerprintInscreen::getDimAmount(int32_t /*brightness*/) {
     int realBrightness = get(BRIGHTNESS_PATH, 0);
     float alpha;
 
