@@ -16,7 +16,6 @@ LOCAL_PACKAGE_NAME := XiaomiParts
 LOCAL_CERTIFICATE := platform
 LOCAL_PRIVATE_PLATFORM_APIS := true
 LOCAL_PRIVILEGED_MODULE := true
-LOCAL_PRODUCT_MODULE := true
 LOCAL_USE_AAPT2 := true
 
 LOCAL_STATIC_ANDROID_LIBRARIES := \
@@ -26,7 +25,6 @@ LOCAL_STATIC_ANDROID_LIBRARIES := \
 LOCAL_RESOURCE_DIR := \
     $(LOCAL_PATH)/res \
     $(TOP)/packages/resources/devicesettings/res \
-    $(TOP)/packages/resources/devicesettings-custom/res
 
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 
