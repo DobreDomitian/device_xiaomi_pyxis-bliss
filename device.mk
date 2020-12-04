@@ -406,7 +406,11 @@ PRODUCT_PACKAGES += \
 # Remove stock apps
 PRODUCT_PACKAGES += \
     RemovePackages
-    
+# Add custom apps
+PRODUCT_PACKAGES +=\
+    MusicPlayer\
+    OPScreenRecorder\
+    privapp_whitelist_com.oneplus.screenrecord.xml  
 # Telephony
 PRODUCT_PACKAGES += \
     ims-ext-common \
