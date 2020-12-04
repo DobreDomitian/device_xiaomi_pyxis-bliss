@@ -34,7 +34,7 @@
 #define FOD_STATUS_PATH "/sys/devices/virtual/touch/tp_dev/fod_status"
 #define FOD_STATUS_ON 1
 #define FOD_STATUS_OFF 0
-
+ 
 #define FOD_ERROR 8
 #define FOD_ERROR_VENDOR 6
 
