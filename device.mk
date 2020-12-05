@@ -178,8 +178,7 @@ PRODUCT_PACKAGES += \
     vendor.goodix.hardware.biometrics.fingerprint@2.1.vendor
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/fingerprint/android.hardware.biometrics.fingerprint@2.1-service.xiaomi_pyxis.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.biometrics.fingerprint@2.1-service.xiaomi_pyxis.rc
-
+    vendor/bliss/config/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
 # Net
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
