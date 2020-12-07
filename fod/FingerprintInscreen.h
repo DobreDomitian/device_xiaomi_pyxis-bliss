@@ -55,9 +55,6 @@ public:
 private:
     bool mFodCircleVisible;
     sp<IXiaomiFingerprint> xiaomiFingerprintService;
-
-    std::mutex mCallbackLock;
-    sp<IFingerprintInscreenCallback> mCallback;
 };
 
 }  // namespace implementation
