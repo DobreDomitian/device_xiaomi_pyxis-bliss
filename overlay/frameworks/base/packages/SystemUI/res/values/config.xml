@@ -22,27 +22,17 @@
 <resources>
     <!-- Doze: does this device support STATE_DOZE?  -->
     <bool name="doze_display_state_supported">true</bool>
-    
-    <!-- The default tiles to display in QuickSettings -->
-    <string name="quick_settings_tiles_default" translatable="false">
-        wifi,bt,nfc,location,sync,dnd,flashlight,rotation,battery,cell,airplane,dark,screenstabilization
-    </string>
-    <!-- Doze: does this device support STATE_DOZE_SUSPEND?  -->
-    <bool name="doze_suspend_display_state_supported">true</bool>
 
     <!-- Doze: check proximity sensor before pulsing? -->
     <bool name="doze_proximity_check_before_pulse">true</bool>
-    
-    <!-- Whether to show biometric help only when failed -->
-    <bool name="config_biometricHelpShowOnlyWhenFailed">true</bool>
-    
-    <!-- CPUInfoService temperature sysfs path -->
-    <string name="config_cpuinfoSysTemp" translatable="false"></string>
 
-    <!-- FPSInfoService Fps file path -->
-    <string name="config_fpsInfoSysNode" translatable="false"></string>
-    
     <!-- Max visible notification icons -->
     <integer name="config_maxVisibleNotificationIcons">6</integer>
     <integer name="config_maxVisibleNotificationIconsWhenDark">7</integer>
+
+    <!-- Whether to show biometric help only when failed -->
+    <bool name="config_biometricHelpShowOnlyWhenFailed">true</bool>
+
+    <!-- FPSInfoService FPS node file path -->
+    <string name="config_fpsInfoSysNode" translatable="false">/sys/class/drm/sde-crtc-0/measured_fps</string>
 </resources>
