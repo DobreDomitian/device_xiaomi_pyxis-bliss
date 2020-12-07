@@ -1180,7 +1180,7 @@
          with a rear-mounted sensor want this, but certain devices have
          the sensor embedded in the power key and listening all the time
          causes a poor experience. -->
-    <bool name="config_fingerprintWakeAndUnlock">true</bool>
+    <bool name="config_fingerprintWakeAndUnlock">false</bool>
 
     <bool name="config_enableSmartPixels">true</bool>
 
@@ -1189,4 +1189,5 @@
 
     <!-- Whether to use in-built Screen Record service -->
     <bool name="config_showScreenRecord">true</bool>
+    
 </resources>

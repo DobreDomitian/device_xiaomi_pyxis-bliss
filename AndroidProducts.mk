@@ -1,13 +1,13 @@
 #
-# Copyright (C) 2020 Bliss Team
+# Copyright (C) 2020 LineageOS Team
 #
 # SPDX-License-Identifier: Apache-2.0
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/bliss_pyxis.mk
+    $(LOCAL_DIR)/ancient_pyxis.mk
 
 COMMON_LUNCH_CHOICES := \
-    bliss_pyxis-eng \
-    bliss_pyxis-userdebug \
-    bliss_pyxis-user
+    ancient_pyxis-eng \
+    ancient_pyxis-userdebug \
+    ancient_pyxis-user
