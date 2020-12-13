@@ -22,6 +22,8 @@
 #include <hardware_legacy/power.h>
 #include <cmath>
 #include <fstream>
+#include <chrono>
+#include <thread>
 
 #define COMMAND_NIT 10
 #define PARAM_NIT_FOD 1
@@ -35,7 +37,6 @@
 #define FOD_STATUS_ON 1
 #define FOD_STATUS_OFF 0
 
-#define FOD_GESTURE 
 #define FOD_ERROR 8
 #define FOD_ERROR_VENDOR 6
 
@@ -108,29 +109,24 @@ Return<void> FingerprintInscreen::onFinishEnroll() {
 
 Return<void> FingerprintInscreen::onPress() {
     acquire_wake_lock(PARTIAL_WAKE_LOCK, LOG_TAG);
-    if(!this->mPressed) 
-    {
-    set(DISPPARAM_PATH, DISPPARAM_HBM_FOD_ON);
-    this->mPressed = true;
+
     xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_FOD);
-    }
-    return Void();
+
+   return Void();
 }
 
 Return<void> FingerprintInscreen::onRelease() {
     release_wake_lock(LOG_TAG);
-    if(this->mPressed)
-    {
-    set(DISPPARAM_PATH, DISPPARAM_HBM_FOD_OFF);
-    this->mPressed = false;
+
     xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_NONE);
-    }
+
     return Void();
 }
 
 Return<void> FingerprintInscreen::onShowFODView() {
     set(FOD_STATUS_PATH, FOD_STATUS_ON);
-    this->mPressed = false;
+    std::this_thread::sleep_for(std::chrono::milliseconds(250) );
+    set(DISPPARAM_PATH, DISPPARAM_HBM_FOD_ON);
     return Void();
 }
 
@@ -138,7 +134,7 @@ Return<void> FingerprintInscreen::onHideFODView() {
     set(FOD_STATUS_PATH, FOD_STATUS_OFF);
     set(DISPPARAM_PATH, DISPPARAM_HBM_FOD_OFF);
     xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_NONE);
-    this->mPressed = true;
+    
     return Void();
 }
 Return<bool> FingerprintInscreen::handleAcquired(int32_t acquiredInfo, int32_t vendorCode) {
@@ -155,8 +151,8 @@ Return<void> FingerprintInscreen::setLongPressEnabled(bool) {
     return Void();
 }
 
-Return<int32_t> FingerprintInscreen::getDimAmount(int32_t) {
-    int realBrightness = get(BRIGHTNESS_PATH, 0);
+Return<int32_t> FingerprintInscreen::getDimAmount(int32_t brightness) {
+    int realBrightness =  brightness * 2047 / 255;
     float alpha;
 
     alpha = (p1 * pow(realBrightness, 3) + p2 * pow(realBrightness, 2) + p3 * realBrightness + p4) / (realBrightness + q1);

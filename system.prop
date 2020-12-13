@@ -64,8 +64,19 @@ ro.surface_flinger.vsync_event_phase_offset_ns=2000000
 ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000
 ro.surface_flinger.wcg_composition_dataspace=143261696
 
-# Memory
+# Perf
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.qti.core_ctl_min_cpu=2 \
+    ro.vendor.qti.core_ctl_max_cpu=4 \
+    vendor.iop.enable_prefetch_ofr=0 \
+    vendor.iop.enable_uxe=0 \
+    persist.vendor.perfservice.disable=1
+
+# Memory optimizations
+PRODUCT_PROPERTY_OVERRIDES += \
 ro.vendor.qti.sys.fw.bservice_enable=true
+
+
 
 # Radio
 DEVICE_PROVISIONED=1
