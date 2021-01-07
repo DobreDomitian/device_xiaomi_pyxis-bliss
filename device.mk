@@ -32,14 +32,6 @@ EXTRA_FOD_ANIMATIONS := true
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-custom
-
-PRODUCT_PACKAGES += \
-    NoCutoutOverlay \
-    RemovePackages\
-    MusicPlayer\
-    CustomDoze \
-    Clock
 
 # Properties
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
@@ -182,7 +174,7 @@ PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service.xiaomi_pyxis
 
 PRODUCT_COPY_FILES += \
-		vendor/ancient/config/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
+		vendor/lineage/config/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
 
 # Freeform Multiwindow
 PRODUCT_COPY_FILES += \
@@ -217,8 +209,9 @@ PRODUCT_PACKAGES += \
     libvulkan \
     memtrack.sdm710 \
     vendor.display.config@1.7 \
-    vendor.qti.hardware.display.allocator@1.0-service
-
+    vendor.qti.hardware.display.allocator@1.0-service\
+    vendor.xiaomi.hardware.displayfeature@1.0-service
+    
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-service \
@@ -295,7 +288,8 @@ PRODUCT_PACKAGES += \
     init.qcom.power.rc \
     init.qcom.usb.rc \
     init.safailnet.rc \
-    ueventd.qcom.rc
+    ueventd.qcom.rc\
+    init.recovery.qcom.rc\
 
 # IPACM
 PRODUCT_PACKAGES += \

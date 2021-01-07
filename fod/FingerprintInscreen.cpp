@@ -22,8 +22,6 @@
 #include <hardware_legacy/power.h>
 #include <cmath>
 #include <fstream>
-#include <chrono>
-#include <thread>
 
 #define COMMAND_NIT 10
 #define PARAM_NIT_FOD 1
@@ -32,6 +30,11 @@
 #define DISPPARAM_PATH "/sys/class/drm/card0-DSI-1/disp_param"
 #define DISPPARAM_HBM_FOD_ON "0x20000"
 #define DISPPARAM_HBM_FOD_OFF "0xE0000"
+
+#define FOD_UI_PATH "/sys/class/drm/card0-DSI-1/fod_ui_ready"
+#define FOD_UI_START_REGISTER 3
+#define FOD_UI_STOP_REGISTER 1
+#define FOD_UI_END 0
 
 #define FOD_STATUS_PATH "/sys/devices/virtual/touch/tp_dev/fod_status"
 #define FOD_STATUS_ON 1
@@ -109,32 +112,31 @@ Return<void> FingerprintInscreen::onFinishEnroll() {
 
 Return<void> FingerprintInscreen::onPress() {
     acquire_wake_lock(PARTIAL_WAKE_LOCK, LOG_TAG);
-
+    set(FOD_UI_PATH, FOD_UI_START_REGISTER);
     xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_FOD);
-
-   return Void();
+    
+    return Void();
 }
 
 Return<void> FingerprintInscreen::onRelease() {
     release_wake_lock(LOG_TAG);
-
+    set(FOD_UI_PATH, FOD_UI_STOP_REGISTER);
     xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_NONE);
 
     return Void();
 }
 
 Return<void> FingerprintInscreen::onShowFODView() {
-    set(FOD_STATUS_PATH, FOD_STATUS_ON);
-    std::this_thread::sleep_for(std::chrono::milliseconds(250) );
-    set(DISPPARAM_PATH, DISPPARAM_HBM_FOD_ON);
+
+
     return Void();
 }
 
 Return<void> FingerprintInscreen::onHideFODView() {
-    set(FOD_STATUS_PATH, FOD_STATUS_OFF);
-    set(DISPPARAM_PATH, DISPPARAM_HBM_FOD_OFF);
+    set(FOD_UI_PATH,FOD_UI_END);
+   
     xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_NONE);
-    
+
     return Void();
 }
 Return<bool> FingerprintInscreen::handleAcquired(int32_t acquiredInfo, int32_t vendorCode) {
@@ -151,8 +153,8 @@ Return<void> FingerprintInscreen::setLongPressEnabled(bool) {
     return Void();
 }
 
-Return<int32_t> FingerprintInscreen::getDimAmount(int32_t brightness) {
-    int realBrightness =  brightness * 2047 / 255;
+Return<int32_t> FingerprintInscreen::getDimAmount(int32_t /*brightness*/) {
+    int realBrightness = get(BRIGHTNESS_PATH, 0);
     float alpha;
 
     alpha = (p1 * pow(realBrightness, 3) + p2 * pow(realBrightness, 2) + p3 * realBrightness + p4) / (realBrightness + q1);
